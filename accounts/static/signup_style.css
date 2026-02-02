@@ -1,0 +1,126 @@
+/* Layout & Background */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 100%);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0; /* Extra space for smaller screens */
+}
+
+.signup-container {
+    width: 100%;
+    max-width: 450px; /* Slightly wider than login for better readability */
+    padding: 20px;
+}
+
+/* The Signup Box */
+.signup-box {
+    background: white;
+    padding: 35px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(27, 67, 50, 0.1);
+    text-align: center;
+}
+
+.signup-box h2 {
+    color: #1b4332;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.signup-box p {
+    color: #6c757d;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+/* Form Styling */
+.input-group {
+    text-align: left;
+    margin-bottom: 15px; /* Tighter spacing for more fields */
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #2d6a4f;
+    font-size: 0.85rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #74c69d;
+    background-color: #f7fffb;
+    box-shadow: 0 0 8px rgba(116, 198, 157, 0.2);
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #2d6a4f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #1b4332;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Footer Link */
+.extra-links {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+}
+
+.extra-links a {
+    color: #40916c;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+/* Error/Message Handling */
+.error-message {
+    background-color: #fff2f2;
+    color: #d63031;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    border: 1px solid #fab1a0;
+    margin-top: 15px;
+    text-align: center;
+}

@@ -1,0 +1,85 @@
+/* General Setup */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4fcf7; /* Very light mint */
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 60px 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    max-width: 500px;
+    width: 90%;
+    /* Animation for the whole card */
+    animation: slideUp 0.6s ease-out;
+}
+
+/* Header & Success Icon */
+h1 {
+    color: #1b4332;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+/* Subtext */
+p {
+    color: #636e72;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* Button Styling */
+a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #40916c;
+    color: white;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(64, 145, 108, 0.2);
+}
+
+a:hover {
+    background-color: #1b4332;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(27, 67, 50, 0.3);
+}
+
+a:active {
+    transform: translateY(-1px);
+}
+
+/* Entrance Animation */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 40px 20px;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+}

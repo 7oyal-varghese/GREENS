@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Greens</title>
+    <link rel="stylesheet" href="{% static 'checkout_style.css' %}">
+</head>
+<body>
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <h1>🛒 Checkout</h1>
+            <p>Complete your order</p>
+        </div>
+
+        <div class="container">
+                <h2>Checkout</h2>
+
+                {% if error %}
+                    <p style="color:red;">{{ error }}</p>
+                {% endif %}
+
+                <h3>Order Summary</h3>
+                {% for item in items %}
+                    <p>{{ item.name }} × {{ item.quantity }} — ₹{{ item.price }}</p>
+                {% endfor %}
+
+                <h3>Total: ₹{{ total }}</h3>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <textarea name="address" placeholder="Delivery Address" required></textarea>
+                    <input type="text" name="phone" placeholder="Phone Number" required>
+
+                    <button type="submit">Place Order</button>
+                </form>
+        </div>
+
+        <div class="back-link">
+            <a href="{% url 'view_cart' %}">← Back to Cart</a>
+        </div>
+    </div>
+</body>
+</html>

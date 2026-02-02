@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store | Greens</title>
+    <link rel="stylesheet" href="{% static 'store_style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="store-header">
+            <h1>🥬 Welcome to Greens Store</h1>
+            <p>Your one-stop shop for fresh, organic produce</p>
+        </div>
+
+        <div class="store-content">
+            <div class="feature-card">
+                <div class="feature-icon">🌱</div>
+                <h3>Fresh & Organic</h3>
+                <p>Directly sourced from local farms</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>Fast Delivery</h3>
+                <p>Quick and reliable delivery service</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💚</div>
+                <h3>Quality Assured</h3>
+                <p>Premium quality guaranteed</p>
+            </div>
+        </div>
+
+        <div class="store-actions">
+            <a href="{% url 'product_list' %}" class="action-btn primary">Browse Products</a>
+            {% if user.is_authenticated and user.is_staff %}
+                <a href="{% url 'add_product' %}" class="action-btn secondary">Add Product</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

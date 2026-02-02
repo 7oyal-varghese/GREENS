@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Greens | Organic Fruits & Vegetables</title>
+<link rel="stylesheet" href="{% static 'home_style.css' %}">
+</head>
+<body>
+
+
+<!-- Navbar -->
+<nav class="navbar">
+<div class="logo">🥬 Greens</div>
+        <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="{% url 'product_list' %}">Products</a></li>
+        {% if user.is_authenticated %}
+            <li class="user-name">Hi, {{ user.username }}</li>
+            <li>
+            <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+            </li>
+        {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+        </ul>
+
+</nav>
+
+
+<!-- Hero Section -->
+<section class="hero">
+<h1>Fresh & Organic Fruits and Vegetables</h1>
+<p>Directly from farms to your home</p>
+<button><a href="{% url 'product_list' %}">Shop Now!</a></button>
+</section>
+
+<!-- About Content -->
+  <main class="container" >
+    <div class="content-wrapper">
+
+      <!-- Heading -->
+      <div class="heading" id='about'>
+        <h1>Our Story</h1>
+        <p>Growing a healthier future, one harvest at a time.</p>
+      </div>
+
+      <!-- Card -->
+      <div class="card">
+        <div class="card-content">
+          <p>
+            <strong>GREENS</strong> is your trusted destination for fresh, organic fruits and vegetables grown with care for both people and the planet. We believe that healthy living starts with clean, natural food, free from harmful chemicals and pesticides.
+          </p>
+
+          <p>
+            At GREENS, we partner directly with local and sustainable farmers who follow organic farming practices. Every product is carefully selected to ensure maximum freshness, nutrition, and flavor—just the way nature intended.
+          </p>
+
+          <div class="quote">
+            <p>
+              "Our mission is to make organic produce easily accessible to everyone by combining farm-fresh quality with modern technology."
+            </p>
+          </div>
+
+          <p>
+            Whether you're looking for the crispest greens, the sweetest seasonal fruits, or pantry staples grown with integrity, we're here to provide a seamless bridge from the farm to your table. Thank you for choosing to eat well and support sustainable agriculture.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-value">100%</div>
+          <p>Organic Certified</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">Local</div>
+          <p>Sustainably Sourced</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">Fresh</div>
+          <p>Farm to Table</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="contact-section" id="contact">
+  <div class="container">
+    <div class="heading">
+      <h1>Get In Touch</h1>
+      <p>Have questions? We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <div class="info-card">
+          <h3>Visit Us</h3>
+          <p>Greens store @vaduthala,@panampilly</p>
+        </div>
+        <div class="info-card">
+          <h3>Email Us</h3>
+          <p>hello@greensorganic.com</p>
+        </div>
+        <div class="info-card">
+          <h3>Call Us</h3>
+          <p>+91 9072944274</p>
+        </div>
+      </div>
+
+      <form class="contact-form">
+        <div class="form-group">
+          <input type="text" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Footer -->
+<footer>
+<p>© 2026 Greens Organic Store</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  document.querySelectorAll(".heading, .card, .stat-item")
+    .forEach(el => observer.observe(el));
+</script>
+
+
+
+</body>
+</html>

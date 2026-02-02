@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product | Greens</title>
+    <link rel="stylesheet" href="{% static 'add_product_style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-card">
+            <div class="header">
+                <h2>🥬 Add New Product</h2>
+                <p>Add fresh produce to your inventory</p>
+            </div>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input type="text" name="name" id="name" placeholder="e.g., Organic Tomatoes" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price (₹ per kg)</label>
+                    <input type="number" name="price" id="price" placeholder="e.g., 120" min="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="category" id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="fruits">🍎 Fruits</option>
+                        <option value="vegetables">🥕 Vegetables</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Image URL</label>
+                    <input type="url" name="image" id="image" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" placeholder="Describe the product quality, origin, etc." rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Add Product</button>
+            </form>
+
+            <div class="back-link">
+                <a href="{% url 'product_list' %}">← Back to Products</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

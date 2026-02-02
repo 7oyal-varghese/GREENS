@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Fresh Greens</title>
+  <link rel="stylesheet" href="{% static 'products_style.css' %}">
+  
+</head>
+<body>
+  <div class="header">
+    <h2>Fresh Fruits & Vegetables</h2>
+    <div class="header-actions">
+      {% if user.is_authenticated and user.is_staff %}
+        <a href="{% url 'admin_orders' %}" class="admin-link">View Orders</a>
+      {% endif %}
+
+      {% if user.is_authenticated and user.is_staff %}
+        <a href="{% url 'add_product' %}" class="admin-link">Add Product</a>
+      {% endif %}
+    </div>
+  </div>
+
+
+  <!-- PRODUCTS -->
+    <section class="products-section">
+      <p id="count"></p>
+
+            <div class="products-grid">
+        {% for product in products %}
+        <div class="product-card" data-category="{{ product.category|lower }}">
+
+          
+          <div class="product-image">
+            <img src="{{ product.image }}" alt="{{ product.name }}">
+
+          </div>
+
+          <span class="category">{{ product.category|title }}</span>
+
+          <h3>{{ product.name }}</h3>
+          <p class="desc">{{ product.description|truncatechars:60 }}</p>
+
+
+
+          <div class="price-row">
+            <span class="price">₹{{ product.price }}</span>
+            <div class="action-buttons">
+              <a href="" class="view-details-btn">View Details</a>
+              
+              {% if user.is_authenticated %}
+                <a href="{% url 'add_to_cart' product.id %}">Add to Cart</a>
+
+              {% else %}
+                <a href="{% url 'login' %}">Add to cart</a>
+              {% endif %}
+
+            </div>
+          </div>
+
+        </div>
+        {% empty %}
+          <p>No products available</p>
+        {% endfor %}
+      </div>
+
+    </section>
+  
+  
+
+
+</body>
+</html>

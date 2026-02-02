@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success | Greens</title>
+    <link rel="stylesheet" href="{% static 'view_orders.css' %}">
+</head>
+<body>
+    <h2>📦 All Orders</h2>
+
+{% if orders %}
+  {% for order in orders %}
+    <div class="order-card">
+      <div class="order-header">
+        <h3>Order #{{ order.id }}</h3>
+        <span class="status-badge">{{ order.status }}</span>
+      </div>
+
+      <div class="order-grid">
+        <div class="info-group">
+          <strong>Customer Info</strong>
+          <p>User ID: {{ order.user_id }}</p>
+          <p>Phone: {{ order.phone }}</p>
+        </div>
+        <div class="info-group">
+          <strong>Delivery Address</strong>
+          <p>{{ order.address }}</p>
+        </div>
+        <div class="info-group">
+          <strong>Payment</strong>
+          <p style="font-size: 1.2rem; color: #2d6a4f; font-weight: bold;">₹{{ order.total_amount }}</p>
+        </div>
+      </div>
+
+      <div class="items-section">
+        <h4>Order Items</h4>
+        <ul>
+          {% for item in order.items %}
+            <li>
+              <span>{{ item.name }} × {{ item.quantity }}</span>
+              <strong>₹{{ item.price }}</strong>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <span class="timestamp">Placed on {{ order.created_at }}</span>
+    </div>
+  {% endfor %}
+{% else %}
+  <div class="no-orders">
+    <p>No orders found in the database.</p>
+  </div>
+{% endif %}
+</body>
+</html>

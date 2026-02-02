@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Greens</title>
+    <link rel="stylesheet" href="{% static 'cart_style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>🛒 Shopping Cart</h1>
+
+        <div class="cart-items">
+            {% if items %}
+                {% for item in items %}
+                    <div class="cart-item">
+                        <img src="{{ item.image }}" alt="{{ item.name }}">
+                        <div class="item-details">
+                            <h3>{{ item.name }}</h3>
+                            <p>Quantity: {{ item.quantity }}</p>
+                            <p class="item-price">₹{{ item.price }} each</p>
+                        </div>
+
+                        <!-- Quantity Controls -->
+                        <div class="qty-controls">
+                            <a href="{% url 'decrease_quantity' item.product_id %}" class="qty-btn">−</a>
+                            <span class="qty">{{ item.quantity }}</span>
+                            <a href="{% url 'increase_quantity' item.product_id %}" class="qty-btn">+</a>
+                        </div>
+
+                        <div class="item-total">
+                            <span class="item-price">₹{{ item.item_total }}</span>
+                        </div>
+
+                        <!-- Remove Button -->
+                        <a href="{% url 'remove_from_cart' item.product_id %}" class="remove-btn">
+                            🗑 Remove
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        {% if items %}
+            <div class="cart-total">
+                <h3>Total: ₹{{ total }}</h3>
+                <p>Including delivery charges</p>
+            </div>
+
+            <div class="button-group">
+                <a href="{% url 'product_list' %}" class="btn btn-continue">Continue Shopping</a>
+                <a href="{% url 'checkout' %}" class="btn btn-checkout">Proceed to Checkout</a>
+            </div>
+        {% else %}
+            <div class="empty-cart">
+                <h2>Your cart is empty 🛒</h2>
+                <p>Add some fresh produce to get started!</p>
+                <a href="{% url 'product_list' %}" class="btn btn-continue">Browse Products</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

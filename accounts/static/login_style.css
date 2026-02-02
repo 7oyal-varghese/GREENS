@@ -1,0 +1,126 @@
+/* Centering the Login Box on the Screen */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Soft nature gradient */
+    background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 100%);
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+/* The Login Box */
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(27, 67, 50, 0.1);
+    text-align: center;
+}
+
+.login-box h2 {
+    color: #1b4332;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.login-box p {
+    color: #6c757d;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+/* Form Layout */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2d6a4f;
+    font-size: 0.85rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Important for width */
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #74c69d;
+    background-color: #f7fffb;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2d6a4f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #1b4332;
+}
+
+/* Links */
+.extra-links {
+    margin-top: 25px;
+    font-size: 0.85rem;
+}
+
+.extra-links a {
+    color: #40916c;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+.extra-links p {
+    margin-top: 10px;
+}
+
+/* Error Messages */
+.messages {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.error-text {
+    background-color: #fff2f2;
+    color: #d63031;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    border: 1px solid #fab1a0;
+}
