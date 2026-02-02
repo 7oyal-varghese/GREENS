@@ -3,7 +3,7 @@ Project Overview
 
 GREENS is a web-based online shopping platform designed for purchasing fresh, organic fruits and vegetables. The application connects customers with locally and sustainably sourced farm produce, promoting healthy living and eco-friendly food choices. The platform provides a simple, clean, and user-friendly experience for browsing products, managing carts, and placing orders online.
 
-Objectives
+OBJECTIVES:
 
 Provide easy online access to organic fruits and vegetables
 
@@ -13,7 +13,7 @@ Offer a smooth and secure shopping experience
 
 Enable users to purchase fresh produce from anywhere
 
-Key Features
+KEY FEATURES:
 
 Product Catalog: View organic fruits and vegetables with images, prices (₹), and descriptions
 
@@ -27,7 +27,7 @@ Checkout & Orders: Simple order placement with delivery details
 
 Responsive Design: Works on mobile, tablet, and desktop devices
 
-Technology Stack
+TECHNOLOGY STACK:
 
 Frontend: HTML, CSS (or React – optional)
 
